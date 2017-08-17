@@ -8,7 +8,7 @@ using Bsp.Core.Domain.Cats;
 using Bsp.Services.Cats;
 using Bsp.Models;
 
-namespace WebApplicationBasic.Controllers {
+namespace Bsp.Web.Controllers {
     [Route("api/[controller]")]
     public class CatsController : Controller { 
         private readonly ICatService _catService;
@@ -23,7 +23,7 @@ namespace WebApplicationBasic.Controllers {
                 return BadRequest(ModelState);
             }
 
-            _catService.InsertCat(cat);
+            _catService.InsertCat(cat); //TODO: Generate & return id value db-side instead of client gen
             return Created($"/api/cats/{cat.Id}", cat);
         }
     }

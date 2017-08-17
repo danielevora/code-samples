@@ -13,6 +13,7 @@ namespace Bsp.Data {
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
+            base.OnModelCreating(modelBuilder); 
             modelBuilder.AddConfiguration(new CatMap());
         }
     }

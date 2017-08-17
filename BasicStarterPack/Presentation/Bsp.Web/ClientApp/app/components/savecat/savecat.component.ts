@@ -9,12 +9,18 @@ import { Http } from '@angular/http';
 export class SaveCatComponent {
     constructor(private http: Http) {
     }
-
-    public saveCat() {
-        console.log('test save cat');
+    
+    submitted = false;
+    onSubmit() { this.submitted = true; }
+    
+    newCat() {
         let randomnumber = Math.floor(Math.random() * (999 - 1 + 1)) + 1;        
         let cat : ICat = { id: randomnumber, dateOfBirth: '1/1/11', name: 'Mew' };
-        this.http.post('/api/cats', cat).subscribe(resp => {
+        return cat;    
+    }
+
+    public saveCat() {
+        this.http.post('/api/cats', this.newCat()).subscribe(resp => {
             console.log(resp);
         });
     }
@@ -25,3 +31,6 @@ interface ICat {
     dateOfBirth: string;
     name: string;
 }
+
+ //model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
+ //submitted = false;

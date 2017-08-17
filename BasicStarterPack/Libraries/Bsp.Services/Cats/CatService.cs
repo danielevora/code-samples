@@ -1,6 +1,7 @@
 ﻿using System;
 using Bsp.Core.Domain.Cats;
 using Bsp.Core.Data;
+using Bsp.Data;
 
 namespace Bsp.Services.Cats {
     public partial class CatService : ICatService {
